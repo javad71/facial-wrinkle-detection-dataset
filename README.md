@@ -43,6 +43,7 @@ This repository provides a curated dataset for facial wrinkle detection tasks, f
 # ⚙️ Setup & Requirements
 
 ## Install Dependencies
+
 ```bash
 pip install opencv-python numpy matplotlib
 
