@@ -1,0 +1,6 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 9
+names: ['bunny_line', 'chin', 'crows_feet', 'forehead', 'frown_line', 'gummy_smile', 'masseter', 'sad_smile', 'smoker_lines']
