@@ -40,18 +40,9 @@ This repository provides a curated dataset for facial wrinkle detection tasks, f
 
 ---
 
-### YOLO Label Format
-Each `.txt` label file contains one bounding box per line:
-<class_id> <x_center> <y_center> <width> <height>
+# ⚙️ Setup & Requirements
 
-- All values are normalized to [0, 1] relative to image dimensions
-- Coordinates refer to the bounding box center and dimensions
-
----
-
-## ⚙️ Setup & Requirements
-
-### Install Dependencies
+## Install Dependencies
 ```bash
 pip install opencv-python numpy matplotlib
 
