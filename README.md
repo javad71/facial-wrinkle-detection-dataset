@@ -91,7 +91,7 @@ yolo detect model=yolov8n.pt data=dataset.yaml epochs=100 imgsz=640
 # 📚 Citation
 
 If you use this dataset in your research, citing this repository:
-bibtex
+```bibtex
 @misc{javad2026facialwrinkledataset,
   author = {Javad},
   title = {facial-wrinkle-detection-dataset},
@@ -99,7 +99,7 @@ bibtex
   publisher = {GitHub},
   url = {https://github.com/yourusername/facial-wrinkle-detection-dataset}
 }
-
+```
 ---
 
 ## ❓ Support & Contributing
