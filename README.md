@@ -1,92 +1,100 @@
-# facial-wrinkle-detection-dataset
-Dataset for the arXiv paper 'A Deep Learning-Based Method for Facial Wrinkle Detection'
+# Facial Wrinkle Detection Dataset
 
-## Dataset Analysis & Visualization
-This repository contains Python scripts to help explore and visualize the **Facial Wrinkle Detection** dataset (YOLO format).
+> Dataset for the arXiv paper: **"A Deep Learning-Based Method for Facial Wrinkle Detection"**
 
-- **Total images**: 2142
-- **Total label files**: 2142
-- **Images without labels**: 0
-- **Average bounding boxes per image**: 16.95
-- **Classes** (wrinkle types):
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![YOLO Format](https://img.shields.io/badge/format-YOLO-orange.svg)](https://github.com/ultralytics/ultralytics)
 
-| Class ID | Wrinkle Type     | Count  |
-|----------|------------------|--------|
-| 0        | bunny_line       | 361    |
-| 1        | chin             | 1237   |
-| 2        | crows_feet       | 6016   |
-| 3        | forehead         | 11015  |
-| 4        | frown_line       | 4151   |
-| 5        | gummy_smile      | 7970   |
-| 6        | masseter         | 2976   |
-| 7        | sad_smile        | 2253   |
-| 8        | smoker_lines     | 329    |
+---
 
-**Total annotations**: ~36,308 bounding boxes
+## 📊 Dataset Overview
 
-### Folder Structure (relevant parts)
+This repository provides a curated dataset for facial wrinkle detection tasks, formatted for YOLO-based object detection models. It includes high-quality facial images annotated with bounding boxes across 9 distinct wrinkle categories.
+
+### Key Statistics
+
+| Metric | Value |
+|--------|-------|
+| **Total Images** | 2,142 |
+| **Total Label Files** | 2,142 |
+| **Images Without Labels** | 0 |
+| **Average Bounding Boxes per Image** | 16.95 |
+| **Total Annotations** | ~36,308 |
+
+### Class Distribution
+
+| Class ID | Wrinkle Type | Count | Percentage |
+|----------|--------------|-------|------------|
+| 0 | `bunny_line` | 361 | 1.0% |
+| 1 | `chin` | 1,237 | 3.4% |
+| 2 | `crows_feet` | 6,016 | 16.6% |
+| 3 | `forehead` | 11,015 | 30.3% |
+| 4 | `frown_line` | 4,151 | 11.4% |
+| 5 | `gummy_smile` | 7,970 | 22.0% |
+| 6 | `masseter` | 2,976 | 8.2% |
+| 7 | `sad_smile` | 2,253 | 6.2% |
+| 8 | `smoker_lines` | 329 | 0.9% |
+
+> 💡 **Note**: Class imbalance is present. Consider applying stratified sampling or class-weighted loss functions during training.
+
+---
+
+## 📁 Repository Structure
 facial-wrinkle-detection-dataset/
 ├── data/
-│   ├── train/
-│   │   ├── images/          ← all training images (.jpg / .png)
-│   │   └── labels/          ← corresponding YOLO .txt label files
+│   └── train/
+│       ├── images/          # Training images (.jpg/.png)
+│       └── labels/          # YOLO-format .txt label files
 ├── scripts/
-│   ├── dataset_stats.py
-│   └── visualize_detections.py
-├── annotated_samples/       ← (generated) individual annotated images
-└── README.md
+│   ├── dataset_stats.py     # Dataset analysis & statistics
+│   └── visualize_detections.py  # Annotation visualization
+├── annotated_samples/       # [Generated] Sample annotated images
+├── requirements.txt         # Python dependencies
+└── README.md                # This file
 
 
-#### Requirements
-Install the required packages:
+### YOLO Label Format
+Each `.txt` label file contains one bounding box per line:
+<class_id> <x_center> <y_center> <width> <height>
 
+- All values are normalized to [0, 1] relative to image dimensions
+- Coordinates refer to the bounding box center and dimensions
+
+---
+
+## ⚙️ Setup & Requirements
+
+### Install Dependencies
 ```bash
+pip install -r requirements.txt
+# Or manually:
 pip install opencv-python numpy matplotlib
 
-##### Usage – Analysis Scripts
-1. Dataset Statistics
-Shows counts, class distribution, average boxes per image, histograms of boxes-per-image and box size distribution.
+# Requirements File (requirements.txt)
+
+opencv-python>=4.5.0
+numpy>=1.21.0
+matplotlib>=3.4.0
+
+## 🛠️ Usage: Analysis & Visualization Scripts
+
+1. Dataset Statistics (dataset_stats.py)
+Generates comprehensive dataset analytics including class distribution, bounding box statistics, and visual histograms.
 
 python scripts/dataset_stats.py
 
-Output:
+### Outputs:
 
-Console summary (as shown in Overview above)
-Saves: dataset_stats.png
+    Console summary of dataset metrics
+    dataset_stats.png – Visual summary (class distribution, box-per-image histogram, box size distribution)
 
-2. Visualize Annotations
-Randomly selects 5 images, draws all ground-truth bounding boxes with class names, and saves them.
+2. Annotation Visualization (visualize_detections.py)
+Randomly samples images and overlays ground-truth bounding boxes with class labels for quality inspection.
 
 python scripts/visualize_detections.py
 
-Output:
-Combined preview saved as sample_detections.png
-Individual high-resolution annotated images saved in:
-scripts/annotated_samples/annotated_*.jpg
+Outputs:
 
-You can open the annotated_samples/ folder to inspect detailed annotations, zoom in, and check label quality for specific images.
-
-###### Citation
-If you use this dataset in your research, please cite:
-
-@article{yourname2025wrinkledetection,
-  title={A Deep Learning-Based Method for Facial Wrinkle Detection},
-  author={Your Name and Co-authors},
-  journal={arXiv preprint arXiv:xxxx.xxxxx},
-  year={2025},
-  url={https://arxiv.org/abs/xxxx.xxxxx}
-}
-
-Also consider citing this repository:
-
-Javad (2026). facial-wrinkle-detection-dataset.
-https://github.com/yourusername/facial-wrinkle-detection-dataset
-
-####### Contact / Questions
-Feel free to open an issue if:
-
-You find annotation errors
-You want more preprocessing / augmentation scripts
-You need help integrating with YOLOv8 / YOLOv11 training
-
-Good luck with your wrinkle detection research! 🧓📸
+    sample_detections.png – Combined preview of 5 annotated samples
+    annotated_samples/annotated_*.jpg – High-resolution individual annotated images
