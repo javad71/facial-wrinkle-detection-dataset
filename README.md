@@ -40,20 +40,6 @@ This repository provides a curated dataset for facial wrinkle detection tasks, f
 
 ---
 
-## 📁 Repository Structure
-facial-wrinkle-detection-dataset/
-├── data/
-│   └── train/
-│       ├── images/          # Training images (.jpg/.png)
-│       └── labels/          # YOLO-format .txt label files
-├── scripts/
-│   ├── dataset_stats.py     # Dataset analysis & statistics
-│   └── visualize_detections.py  # Annotation visualization
-├── annotated_samples/       # [Generated] Sample annotated images
-├── requirements.txt         # Python dependencies
-└── README.md                # This file
-
-
 ### YOLO Label Format
 Each `.txt` label file contains one bounding box per line:
 <class_id> <x_center> <y_center> <width> <height>
