@@ -46,9 +46,74 @@ This repository provides a curated dataset for facial wrinkle detection tasks, f
 
 ```bash
 pip install opencv-python numpy matplotlib
+```
+---
+
+# 🛠️ Usage: Analysis & Visualization Scripts
+1. Dataset Statistics (dataset_stats.py)
+Generates comprehensive dataset analytics including class distribution, bounding box statistics, and visual histograms.
+```bash
+python scripts/dataset_stats.py
+```
+Outputs:
+- Console summary of dataset metrics
+- dataset_stats.png – Visual summary (class distribution, box-per-image histogram, box size distribution)
+
+2. Annotation Visualization (visualize_detections.py)
+Randomly samples images and overlays ground-truth bounding boxes with class labels for quality inspection.
+```bash
+python scripts/visualize_detections.py
+```
+Outputs:
+- annotated_samples/annotated_*.jpg – High-resolution individual annotated images
+
+---
+
+## 🧪 Integration with YOLO Models
+This dataset is ready-to-use with Ultralytics YOLOv8/v11:
+1. Create a dataset.yaml configuration file:
+```bash
+path: ./facial-wrinkle-detection-dataset/data
+train: train/images
+val: train/images  # Update if validation split is added
+nc: 9
+names: ['bunny_line', 'chin', 'crows_feet', 'forehead', 'frown_line', 
+        'gummy_smile', 'masseter', 'sad_smile', 'smoker_lines']
+```  
+
+2. Train with YOLOv8:
+```bash
+yolo detect model=yolov8n.pt data=dataset.yaml epochs=100 imgsz=640
+```
 
 ---
 
 # 📚 Citation
-dkfsdbfvs
+
+If you use this dataset in your research, citing this repository:
+
+@misc{javad2026facialwrinkledataset,
+  author = {Javad},
+  title = {facial-wrinkle-detection-dataset},
+  year = {2026},
+  publisher = {GitHub},
+  url = {https://github.com/yourusername/facial-wrinkle-detection-dataset}
+}
+
 ---
+
+## ❓ Support & Contributing
+We welcome community contributions! Please open an issue if you:
+- 🐞 Discover annotation errors or inconsistencies  
+- 💡 Suggest new preprocessing, augmentation, or evaluation scripts  
+- 🔌 Need help integrating with YOLOv8/v11, Detectron2, or other frameworks  
+- 📈 Want to contribute a validation/test split or additional metadata
+
+---
+
+### 📜 License
+This dataset is released under the MIT License.
+Note: Ensure compliance with any underlying image source licenses before commercial use.
+
+    🧓📸 Good luck with your facial wrinkle detection research!
+    For questions or collaboration inquiries, please open a GitHub issue or contact the maintainers.
