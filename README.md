@@ -53,34 +53,6 @@ Each `.txt` label file contains one bounding box per line:
 
 ### Install Dependencies
 ```bash
-pip install -r requirements.txt
-# Or manually:
 pip install opencv-python numpy matplotlib
 
-# Requirements File (requirements.txt)
-
-opencv-python>=4.5.0
-numpy>=1.21.0
-matplotlib>=3.4.0
-
-## 🛠️ Usage: Analysis & Visualization Scripts
-
-1. Dataset Statistics (dataset_stats.py)
-Generates comprehensive dataset analytics including class distribution, bounding box statistics, and visual histograms.
-
-python scripts/dataset_stats.py
-
-### Outputs:
-
-    Console summary of dataset metrics
-    dataset_stats.png – Visual summary (class distribution, box-per-image histogram, box size distribution)
-
-2. Annotation Visualization (visualize_detections.py)
-Randomly samples images and overlays ground-truth bounding boxes with class labels for quality inspection.
-
-python scripts/visualize_detections.py
-
-Outputs:
-
-    sample_detections.png – Combined preview of 5 annotated samples
-    annotated_samples/annotated_*.jpg – High-resolution individual annotated images
+---
